@@ -42,11 +42,11 @@ const translations = {
   CZ: {
     subtitle: "PROJECT MANAGEMENT",
     overview: "Přehled projektů",
-    intro: "Přehled aktuální práce a dokončených zakázek.",
+    intro: "Přehled Aktuální práce a dokončených zakázek.(Tenhle web byl nedávno založen, takže je možné že některé projekty zde nebudou.)",
     active: "Aktivní projekty",
     completed: "Dokončené",
     total: "Celkem projektů",
-    budgetTotal: "Celkový rozpočet",
+    budgetTotal: "Odhadovaná hodnota všech projektů",
     budgetDetail: "Hodnota všech zakázek",
     all: "Všechny",
     inProgress: "Probíhá",
@@ -55,8 +55,8 @@ const translations = {
     project: "PROJEKT",
     status: "STAV",
     progress: "PRŮBĚH",
-    budget: "ROZPOČET",
-    updated: "DATUM",
+    budget: "ODHADOVANÝ ROZPOČET",
+    updated: "NAPOSLEDY AKTUALIZOVÁNO",
     development: "Probíhá vývoj",
     waitingStatus: "Čeká na zákazníka",
     completedStatus: "Dokončeno",
@@ -65,22 +65,28 @@ const translations = {
     loading: "Načítání projektů...",
     loadError: "Projekty se nepodařilo načíst.",
     retry: "Zkusit znovu",
-    footer: "Vytvořeno s důrazem na kvalitu.",
+    footer: "Tenhle web byl vytvořen : Rion2._ | Rionxdd | Rion",
     allWork: "MOJE PRÁCE",
     public: "Veřejný přehled",
     client: "ZÁKAZNÍK",
     projectCount: "projektů",
     displayedBudget: "Rozpočet zobrazených zakázek:",
     author: "Navrženo a spravováno",
+    contactLabel: "SPOLUPRÁCE",
+    contactTitle: "Máš zájem o vlastní projekt?",
+    contactDescription:
+      "Potřebuješ Minecraft plugin, Discord bota nebo web? Napiš mi svou představu a společně probereme možnosti.",
+    contactButton: "Kontaktovat na Discordu",
+    contactNote: "Napiš mi, co potřebuješ vytvořit, a domluvíme se na podrobnostech.",
   },
   EN: {
     subtitle: "PROJECT MANAGEMENT",
     overview: "Project overview",
-    intro: "An overview of current work and completed projects.",
+    intro: "An overview of current work and completed projects.(Some projects may not be listed here as this website was recently created.)",
     active: "Active projects",
     completed: "Completed",
     total: "Total projects",
-    budgetTotal: "Total budget",
+    budgetTotal: "Estimated value of all projects",
     budgetDetail: "Value of all projects",
     all: "All projects",
     inProgress: "In progress",
@@ -89,8 +95,8 @@ const translations = {
     project: "PROJECT",
     status: "STATUS",
     progress: "PROGRESS",
-    budget: "BUDGET",
-    updated: "DATE",
+    budget: "ESTIMATED BUDGET",
+    updated: "LAST UPDATED",
     development: "In development",
     waitingStatus: "Awaiting customer",
     completedStatus: "Completed",
@@ -99,13 +105,19 @@ const translations = {
     loading: "Loading projects...",
     loadError: "Could not load projects.",
     retry: "Try again",
-    footer: "Built with a focus on quality.",
+    footer: "This web has been created by Rion2._ | Rionxdd | Rion",
     allWork: "MY WORK",
     public: "Public overview",
     client: "CLIENT",
     projectCount: "projects",
     displayedBudget: "Budget of displayed projects:",
     author: "Designed and managed by",
+    contactLabel: "LET'S WORK TOGETHER",
+    contactTitle: "Have a project in mind?",
+    contactDescription:
+      "Need a Minecraft plugin, a Discord bot, or a web? Tell me your idea and we can discuss how to bring it to life.",
+    contactButton: "Contact me on Discord",
+    contactNote: "Tell me what you need and we can discuss the details.",
   },
 };
 
@@ -604,7 +616,48 @@ function formatBudget(amount: number) {
             </span>
           </div>
         </section>
+        <section className="mt-10 overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-[#11151d] to-[#0e0f12] p-6 sm:p-9">
+          <div className="max-w-2xl">
+            <div className="mb-3 flex items-center gap-2 text-[10px] font-semibold tracking-[0.18em] text-blue-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+              {t.contactLabel}
+            </div>
 
+            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              {t.contactTitle}
+            </h2>
+
+            <p className="mt-3 max-w-xl text-sm leading-6 text-zinc-400">
+              {t.contactDescription}
+            </p>
+
+            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a
+                href="https://discord.com/users/rion2._"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#5865F2] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#4752C4]"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  <path d="M19.73 5.33A18.2 18.2 0 0 0 15.24 4a12.6 12.6 0 0 0-.57 1.18 16.8 16.8 0 0 0-5.34 0A12.6 12.6 0 0 0 8.76 4a18.2 18.2 0 0 0-4.49 1.33C1.43 9.6.66 13.77 1.05 17.88a18.3 18.3 0 0 0 5.5 2.78c.44-.6.83-1.24 1.16-1.91-.64-.24-1.25-.54-1.82-.9.15-.11.3-.23.44-.35a13 13 0 0 0 11.34 0c.14.12.29.24.44.35-.57.36-1.18.66-1.82.9.33.67.72 1.31 1.16 1.91a18.3 18.3 0 0 0 5.5-2.78c.46-4.77-.79-8.9-3.22-12.55ZM8.02 14.75c-1.07 0-1.95-.98-1.95-2.18s.86-2.18 1.95-2.18 1.97.99 1.95 2.18c0 1.2-.86 2.18-1.95 2.18Zm7.96 0c-1.07 0-1.95-.98-1.95-2.18s.86-2.18 1.95-2.18 1.97.99 1.95 2.18c0 1.2-.86 2.18-1.95 2.18Z" />
+                </svg>
+                {t.contactButton}
+              </a>
+
+              <div className="text-xs leading-5 text-zinc-500">
+                <div>{t.contactNote}</div>
+                <div className="mt-1 font-medium text-zinc-300">
+                  Discord: rion2._
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <footer className="mt-6 flex flex-col gap-2 text-xs text-zinc-600 sm:flex-row sm:items-center sm:justify-between">
           <span>{t.footer}</span>
 
