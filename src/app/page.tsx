@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -33,10 +32,11 @@ type JobRow = {
   budget: number | null;
   progress: number | null;
   created_at: string;
+  updated_at: string | null;
 };
 
 const JOBS_SELECT =
-  "id,title,client,description,description_cs,description_en,status,budget,progress,created_at";
+  "id,title,client,description,description_cs,description_en,status,budget,progress,created_at,updated_at";
 
 const translations = {
   CZ: {
@@ -140,6 +140,8 @@ function mapJob(row: JobRow, language: Language): Job {
     Math.max(0, Number(row.progress ?? 0)),
   );
 
+  const lastUpdated = row.updated_at || row.created_at;
+
   return {
     id: row.id,
     name: row.title || "Untitled project",
@@ -152,11 +154,26 @@ function mapJob(row: JobRow, language: Language): Job {
       language === "CZ"
         ? row.description_cs || row.description || ""
         : row.description_en || row.description || "",
-    date: row.created_at
-      ? new Date(row.created_at).toLocaleDateString(
-          language === "CZ" ? "cs-CZ" : "en-GB",
-        )
-      : "",
+date: lastUpdated
+  ? (() => {
+      const date = new Date(lastUpdated);
+
+      date.setMinutes(0, 0, 0);
+
+      return new Intl.DateTimeFormat(
+        language === "CZ" ? "cs-CZ" : "en-GB",
+        {
+          day: "numeric",
+          month: "numeric",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          hourCycle: "h23",
+          timeZone: "Europe/Prague",
+        }
+      ).format(date);
+    })()
+  : "",
     budget: Math.max(0, Number(row.budget ?? 0)),
   };
 }
@@ -281,11 +298,11 @@ export default function Home() {
     return "border-blue-900/70 bg-blue-950/40 text-blue-400";
   }
 
-function formatBudget(amount: number) {
-  return `${new Intl.NumberFormat("en-US", {
-    maximumFractionDigits: 0,
-  }).format(amount)} Kč`;
-}
+  function formatBudget(amount: number) {
+    return `${new Intl.NumberFormat("en-US", {
+      maximumFractionDigits: 0,
+    }).format(amount)} Kč`;
+  }
 
   function retryLoading() {
     setLoadError("");
@@ -616,6 +633,7 @@ function formatBudget(amount: number) {
             </span>
           </div>
         </section>
+
         <section className="mt-10 overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-[#11151d] to-[#0e0f12] p-6 sm:p-9">
           <div className="max-w-2xl">
             <div className="mb-3 flex items-center gap-2 text-[10px] font-semibold tracking-[0.18em] text-blue-400">
@@ -658,6 +676,7 @@ function formatBudget(amount: number) {
             </div>
           </div>
         </section>
+
         <footer className="mt-6 flex flex-col gap-2 text-xs text-zinc-600 sm:flex-row sm:items-center sm:justify-between">
           <span>{t.footer}</span>
 
