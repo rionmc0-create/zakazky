@@ -155,24 +155,18 @@ function mapJob(row: JobRow, language: Language): Job {
         ? row.description_cs || row.description || ""
         : row.description_en || row.description || "",
 date: lastUpdated
-  ? (() => {
-      const date = new Date(lastUpdated);
-
-      date.setMinutes(0, 0, 0);
-
-      return new Intl.DateTimeFormat(
-        language === "CZ" ? "cs-CZ" : "en-GB",
-        {
-          day: "numeric",
-          month: "numeric",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-          hourCycle: "h23",
-          timeZone: "Europe/Prague",
-        }
-      ).format(date);
-    })()
+  ? new Intl.DateTimeFormat(
+      language === "CZ" ? "cs-CZ" : "en-GB",
+      {
+        day: "numeric",
+        month: "numeric",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23",
+        timeZone: "Europe/Prague",
+      }
+    ).format(new Date(lastUpdated))
   : "",
     budget: Math.max(0, Number(row.budget ?? 0)),
   };
