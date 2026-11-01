@@ -16,32 +16,31 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://rionxddprojects.vercel.app"),
 
-  title: "Rionxdd – Official Website | Rionxdd Projects",
-
+  title: "Rionxdd – Official Website",
   description:
-  "Official website of Rionxdd. Minecraft development, Discord services, custom plugins and web projects.",
+    "Official website of Rionxdd, showcasing Minecraft plugin development, Discord bots, web development and professional projects.",
 
-  applicationName: "Rionxdd Projects",
+  applicationName: "Rionxdd",
 
   alternates: {
     canonical: "/",
   },
 
   openGraph: {
-    title: "Rionxdd Projects – Minecraft & Discord Development",
+    title: "Rionxdd – Official Website",
     description:
-      "Professional Minecraft and Discord development services by Rionxdd. Explore projects, services and collaborations.",
+      "Discover projects and development services by Rionxdd, including Minecraft plugins, Discord bots and websites.",
     url: "https://rionxddprojects.vercel.app/",
-    siteName: "Rionxdd Projects",
+    siteName: "Rionxdd",
     locale: "en_US",
     type: "website",
   },
 
   twitter: {
     card: "summary",
-    title: "Rionxdd Projects – Minecraft & Discord Development",
+    title: "Rionxdd – Official Website",
     description:
-      "Minecraft and Discord development services by Rionxdd.",
+      "Minecraft development, Discord bots and web projects by Rionxdd.",
   },
 
   robots: {
