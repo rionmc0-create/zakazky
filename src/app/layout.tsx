@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://rionxddprojects.vercel.app"),
 
-  title: "Rionxdd Projects – Minecraft & Discord Development",
+  title: "Rionxdd – Official Website | Rionxdd Projects",
 
   description:
-    "Rionxdd Projects – Minecraft server development, Discord server setup, community management and custom development services.",
+  "Official website of Rionxdd. Minecraft development, Discord services, custom plugins and web projects.",
 
   applicationName: "Rionxdd Projects",
 
