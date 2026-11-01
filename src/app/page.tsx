@@ -42,7 +42,7 @@ const translations = {
   CZ: {
     subtitle: "PROJECT MANAGEMENT",
     overview: "Přehled projektů",
-    intro: "Přehled Aktuální práce a dokončených zakázek.(Tenhle web byl nedávno založen, takže je možné že některé projekty zde nebudou.)",
+    intro: "Rionxdd Projects – přehled aktuálních a dokončených zakázek. Zaměřuji se na vývoj Minecraft pluginů, Discord botů a webových stránek. Některé projekty zde nemusí být uvedeny z důvodu nedávného založení webu.",
     active: "Aktivní projekty",
     completed: "Dokončené",
     total: "Celkem projektů",
@@ -82,7 +82,7 @@ const translations = {
   EN: {
     subtitle: "PROJECT MANAGEMENT",
     overview: "Project overview",
-    intro: "An overview of current work and completed projects.(Some projects may not be listed here as this website was recently created.)",
+    intro: "Rionxdd Projects – an overview of current and completed projects. I specialize in Minecraft plugin development, Discord bots and website development. Some projects may not be listed here because the website was recently created.",
     active: "Active projects",
     completed: "Completed",
     total: "Total projects",
